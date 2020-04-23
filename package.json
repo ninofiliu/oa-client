@@ -12,5 +12,10 @@
   "homepage": "https://github.com/ninofiliu/oa-client",
   "license": "MIT",
   "author": "Nino Filiu <nino.filiu@gmail.com> (https://ninofiliu.github.io)",
-  "repository": "github:ninofiliu/oa-client"
+  "repository": "github:ninofiliu/oa-client",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2"
+  }
 }
