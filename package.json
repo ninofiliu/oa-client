@@ -13,10 +13,18 @@
   "license": "MIT",
   "author": "Nino Filiu <nino.filiu@gmail.com> (https://ninofiliu.github.io)",
   "repository": "github:ninofiliu/oa-client",
+  "scripts": {
+    "test": "jest"
+  },
   "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "@types/jest": "^25.2.1",
+    "babel-jest": "^25.4.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jest": "^23.8.2",
     "jest": "^25.4.0"
   }
 }

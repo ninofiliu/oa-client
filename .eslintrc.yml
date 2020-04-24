@@ -4,10 +4,13 @@ env:
   node: true
 extends:
   - airbnb-base
+  - plugin:jest/recommended
 globals:
   Atomics: readonly
   SharedArrayBuffer: readonly
 parserOptions:
   ecmaVersion: 2018
   sourceType: module
-rules: {}
+rules:
+  guard-for-in: off
+  no-restricted-syntax: off
