@@ -1,6 +1,6 @@
 {
   "name": "oa-client",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Harness all the power of your backend's OpenAPI spec files by generating a type-safe documented client object.",
   "keywords": [
     "open-api",
@@ -13,6 +13,7 @@
   "license": "MIT",
   "author": "Nino Filiu <nino.filiu@gmail.com> (https://ninofiliu.github.io)",
   "repository": "github:ninofiliu/oa-client",
+  "main": "src",
   "scripts": {
     "test": "jest"
   },
