@@ -16,14 +16,14 @@ var _getCallPath = _interopRequireDefault(require("./get-call-path"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var _default = (specs, callers, method, origin = null) => async (path, {
-  urlParams,
+  pathParams,
   searchParams,
   body
 }) => {
   const routeSpecs = (0, _getRouteSpecs.default)(specs, path, method);
   const caller = (0, _getCaller.default)(callers, routeSpecs, path);
   const callOrigin = (0, _getOrigin.default)(origin, specs);
-  const callPath = (0, _getCallPath.default)(path, urlParams);
+  const callPath = (0, _getCallPath.default)(path, pathParams);
   const callUrl = new URL(callOrigin + callPath);
 
   for (const key in searchParams) {

@@ -20,7 +20,7 @@ describe('createClientMethod', () => {
 
     const method = createClientMethod(specs, callers, 'post');
     method('/users/{id}', {
-      urlParams: { id: '123456' },
+      pathParams: { id: '123456' },
       searchParams: { foo: 'bar' },
       body: { some: 'data' },
     });
