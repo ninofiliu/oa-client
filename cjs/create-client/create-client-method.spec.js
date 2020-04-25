@@ -26,7 +26,7 @@ describe('createClientMethod', () => {
       pathParams: {
         id: '123456'
       },
-      searchParams: {
+      queryParams: {
         foo: 'bar'
       },
       body: {

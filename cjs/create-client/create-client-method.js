@@ -17,7 +17,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var _default = (specs, callers, method, origin = null) => async (path, {
   pathParams,
-  searchParams,
+  queryParams,
   body
 }) => {
   const routeSpecs = (0, _getRouteSpecs.default)(specs, path, method);
@@ -26,8 +26,8 @@ var _default = (specs, callers, method, origin = null) => async (path, {
   const callPath = (0, _getCallPath.default)(path, pathParams);
   const callUrl = new URL(callOrigin + callPath);
 
-  for (const key in searchParams) {
-    callUrl.searchParams.append(key, searchParams[key]);
+  for (const key in queryParams) {
+    callUrl.searchParams.append(key, queryParams[key]);
   }
 
   return caller(callUrl, body);
