@@ -1,4 +1,4 @@
-import validateRequest from './validate-request';
+import validateRequest from '.';
 
 describe('validateRequest', () => {
   it('throws for invalid path params', () => {
