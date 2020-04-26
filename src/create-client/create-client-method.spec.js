@@ -18,7 +18,7 @@ describe('createClientMethod', () => {
       'simple-post': jest.fn(),
     };
 
-    const method = createClientMethod(specs, callers, 'post');
+    const method = createClientMethod(specs, callers, 'post', null, 'error');
     method('/users/{id}', {
       pathParams: { id: '123456' },
       queryParams: { foo: 'bar' },
