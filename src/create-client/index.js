@@ -2,18 +2,18 @@ import createClientMethod from './create-client-method';
 
 export default (
   specs,
-  caller,
+  callers,
   {
     origin = null,
     validationLevel = 'off',
   } = { origin: null, validationLevel: 'off' },
 ) => ({
-  get: createClientMethod(specs, caller, 'get', origin, validationLevel),
-  head: createClientMethod(specs, caller, 'head', origin, validationLevel),
-  post: createClientMethod(specs, caller, 'post', origin, validationLevel),
-  put: createClientMethod(specs, caller, 'put', origin, validationLevel),
-  delete: createClientMethod(specs, caller, 'delete', origin, validationLevel),
-  options: createClientMethod(specs, caller, 'options', origin, validationLevel),
-  trace: createClientMethod(specs, caller, 'trace', origin, validationLevel),
-  patch: createClientMethod(specs, caller, 'patch', origin, validationLevel),
+  get: createClientMethod(specs, callers, 'get', origin, validationLevel),
+  head: createClientMethod(specs, callers, 'head', origin, validationLevel),
+  post: createClientMethod(specs, callers, 'post', origin, validationLevel),
+  put: createClientMethod(specs, callers, 'put', origin, validationLevel),
+  delete: createClientMethod(specs, callers, 'delete', origin, validationLevel),
+  options: createClientMethod(specs, callers, 'options', origin, validationLevel),
+  trace: createClientMethod(specs, callers, 'trace', origin, validationLevel),
+  patch: createClientMethod(specs, callers, 'patch', origin, validationLevel),
 });
