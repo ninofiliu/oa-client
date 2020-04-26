@@ -4,19 +4,15 @@ import getOrigin from './get-origin';
 import getCallPath from './get-call-path';
 import validateRequest from './validate-request';
 
-export default (
-  specs, callers, method,
-  origin = null,
-  validationLevel = 'off',
-  contentType = 'application/json',
-) => (
+export default (specs, callers, method, origin, validationLevel) => (
   async (
     path,
     {
       pathParams = {},
       queryParams = {},
       body,
-    } = { pathParams: {}, queryParams: {} },
+      contentType = 'application/json',
+    } = { pathParams: {}, queryParams: {}, contentType: 'application/json' },
   ) => {
     const routeSpecs = getRouteSpecs(specs, path, method);
     validateRequest(validationLevel, routeSpecs, pathParams, queryParams, body, contentType);
