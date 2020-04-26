@@ -13,4 +13,5 @@ parserOptions:
   sourceType: module
 rules:
   guard-for-in: off
+  max-len: off
   no-restricted-syntax: off
