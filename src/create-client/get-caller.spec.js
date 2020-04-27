@@ -13,9 +13,9 @@ describe('getCaller', () => {
 
     expect(() => getCaller(callers, routeSpecs, '/a')).toThrow();
   });
-  it('returns callers[routeSpecs.type]', () => {
+  it('returns callers[routeSpecs[\'x-type\']]', () => {
     const callers = { foo: 'bar' };
-    const routeSpecs = { type: 'foo' };
+    const routeSpecs = { 'x-type': 'foo' };
 
     expect(getCaller(callers, routeSpecs, '/a')).toEqual('bar');
   });

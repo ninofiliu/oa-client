@@ -23,15 +23,16 @@ const { createClient } = require('oa-client');
 
 ### 3. Have somewhere your OpenAPI specs as a JS object
 
-You don't need to add anything compared to normal specs, except for `.paths[path][method].type`, that defines the *caller*
+You don't need to add anything compared to normal specs, except for `.paths[path][method]['x-type']`, that defines the *caller*
 
 ```js
 const specs = {
   openapi: '3.0.0',
+  info: { /* ... */ },
   paths: {
     '/users/{userId}': {
       get: {
-        type: 'default-get', // defines the caller
+        'x-type': 'default-get', // defines the caller
         parameters: [
           {
             in: 'path',
@@ -42,6 +43,7 @@ const specs = {
             },
           },
         ],
+        responses: { /* ... */ }
       },
     },
   },

@@ -17,12 +17,12 @@ describe('getCaller', () => {
     };
     expect(() => (0, _getCaller.default)(callers, routeSpecs, '/a')).toThrow();
   });
-  it('returns callers[routeSpecs.type]', () => {
+  it('returns callers[routeSpecs[\'x-type\']]', () => {
     const callers = {
       foo: 'bar'
     };
     const routeSpecs = {
-      type: 'foo'
+      'x-type': 'foo'
     };
     expect((0, _getCaller.default)(callers, routeSpecs, '/a')).toEqual('bar');
   });

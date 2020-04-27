@@ -13,7 +13,7 @@ describe('createClientMethod', () => {
       paths: {
         '/users/{id}': {
           post: {
-            type: 'simple-post'
+            'x-type': 'simple-post'
           }
         }
       }
