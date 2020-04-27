@@ -110,3 +110,26 @@ const url = new URL('https://my.api.com/users/123');
 callers['unauthentified-get'](url);
 ```
 
+
+## Differences with openapi-client
+
+The [openapi-client](https://github.com/mikestead/openapi-client) package is similar but accomplishes things differently.
+
+`openapi-client` is a **code generation** package. You use it as a command line so that it consumes OpenAPI specs and outputs code that will call your server. It is not ideal because you don't own and control all of your code, and it adds complexity.
+
+`oa-client` is simpler - it exposes `createClient`, a **factory** that take specs as input and builds the client at runtime. If your API updates, you don't have to write or generate a single line of code.
+
+`openapi-client` handles all the HTTP calls and authentication for you. That can seem powerful, but actually the system is *very* rigid, even for small customizations, and doesn't cover all cases you'll face along the way.
+
+In `oa-client`, you fully own your generic HTTP callers: you write them yourself, but you probably won't write more than five of them during your whole project lifetime: who needs more than get, post, authorized get, authorized post and file upload?
+
+```
++-------------------------------+
+| Written with <3 by Nino Filiu |
++-------------------------------+
+         \   ^__^ 
+          \  (oo)\_______
+             (__)\       )\/\
+                 ||----w |
+                 ||     ||
+```
