@@ -11,7 +11,7 @@ describe('validateParam', () => {
     };
     const value = undefined;
 
-    expect(() => validateParam(validationLevel, parameter, value)).toThrow();
+    expect(() => validateParam(validationLevel, parameter, value)).toThrow('[oa-client:104]');
   });
   it('throws for invalid required parameter', () => {
     const validationLevel = 'error';
@@ -23,7 +23,7 @@ describe('validateParam', () => {
     };
     const value = 10.5;
 
-    expect(() => validateParam(validationLevel, parameter, value)).toThrow();
+    expect(() => validateParam(validationLevel, parameter, value)).toThrow('[oa-client:103]');
   });
   it('does not throw for valid required parameter', () => {
     const validationLevel = 'error';

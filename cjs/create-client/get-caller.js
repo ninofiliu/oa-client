@@ -5,15 +5,24 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
+var _OAClientError = _interopRequireDefault(require("../errors/OAClientError"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var _default = (callers, routeSpecs, path) => {
   if (!routeSpecs['x-type']) {
-    throw new Error(`The path ${path} does not specify a route type. Make sure your OpenAPI specs have a .paths['${path}']['x-type'] key.`);
+    throw new _OAClientError.default(1, {
+      path
+    });
   }
 
   const type = routeSpecs['x-type'];
 
   if (!(type in callers)) {
-    throw new Error(`The caller ${type} doesn't exist. Make sure your caller object has a ${type} key.`);
+    throw new _OAClientError.default(2, {
+      type,
+      callers
+    });
   }
 
   return callers[type];

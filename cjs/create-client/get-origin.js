@@ -5,11 +5,15 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
+var _OAClientError = _interopRequireDefault(require("../errors/OAClientError"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var _default = (origin, specs) => {
   if (origin) return origin;
 
   if (!specs.servers || !specs.servers[0].url) {
-    throw new Error('No origin nor server URL specified. Call createClient with an origin argument, or specify .servers[0].url in your OpenAPI specs.');
+    throw new _OAClientError.default(3);
   }
 
   return specs.servers[0].url;

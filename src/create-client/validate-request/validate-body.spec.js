@@ -17,7 +17,7 @@ describe('validateBody', () => {
     const contentType = 'application/json';
     const body = 'hello';
 
-    expect(() => validateBody(validationLevel, routeSpecs, contentType, body)).toThrow();
+    expect(() => validateBody(validationLevel, routeSpecs, contentType, body)).toThrow('[oa-client:103]');
   });
   it('does not throw for a body that matches the body schema', () => {
     const validationLevel = 'error';

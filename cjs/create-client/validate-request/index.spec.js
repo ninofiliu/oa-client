@@ -23,7 +23,7 @@ describe('validateRequest', () => {
     const queryParams = {};
     const body = undefined;
     const contentType = 'application/json';
-    expect(() => (0, _.default)(validationLevel, routeSpecs, pathParams, queryParams, body, contentType)).toThrow();
+    expect(() => (0, _.default)(validationLevel, routeSpecs, pathParams, queryParams, body, contentType)).toThrow('[oa-client:103]');
   });
   it('throws for invalid query params', () => {
     const validationLevel = 'error';
@@ -43,7 +43,7 @@ describe('validateRequest', () => {
     };
     const body = undefined;
     const contentType = 'application/json';
-    expect(() => (0, _.default)(validationLevel, routeSpecs, pathParams, queryParams, body, contentType)).toThrow();
+    expect(() => (0, _.default)(validationLevel, routeSpecs, pathParams, queryParams, body, contentType)).toThrow('[oa-client:103]');
   });
   it('throws for invalid body', () => {
     const validationLevel = 'error';
@@ -63,7 +63,7 @@ describe('validateRequest', () => {
     const queryParams = {};
     const body = 'hello';
     const contentType = 'application/json';
-    expect(() => (0, _.default)(validationLevel, routeSpecs, pathParams, queryParams, body, contentType)).toThrow();
+    expect(() => (0, _.default)(validationLevel, routeSpecs, pathParams, queryParams, body, contentType)).toThrow('[oa-client:103]');
   });
   it('does not throw for valid all', () => {
     const validationLevel = 'error';

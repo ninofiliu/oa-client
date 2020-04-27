@@ -12,6 +12,7 @@ parserOptions:
   ecmaVersion: 2018
   sourceType: module
 rules:
+  default-case: off
   guard-for-in: off
   max-len: off
   no-restricted-syntax: off

@@ -1,9 +1,11 @@
+import OAClientError from '../errors/OAClientError';
+
 export default (specs, path, method) => {
   if (!(path in specs.paths)) {
-    throw new Error(`The path ${path} does not exist.`);
+    throw new OAClientError(4, { path });
   }
   if (!(method in specs.paths[path])) {
-    throw new Error(`The method ${method} is not handled for the path ${path}.`);
+    throw new OAClientError(5, { path, method, specs });
   }
   return specs.paths[path][method];
 };

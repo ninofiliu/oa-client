@@ -1,6 +1,6 @@
 {
   "name": "oa-client",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Harness all the power of your backend's OpenAPI spec files by generating a client object in a few lines.",
   "keywords": [
     "open-api",
@@ -20,7 +20,8 @@
   "browser": "src",
   "scripts": {
     "build": "babel src --out-dir cjs",
-    "test": "jest"
+    "test": "jest",
+    "tdd": "jest --watch"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",

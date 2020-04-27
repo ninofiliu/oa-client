@@ -10,7 +10,7 @@ describe('getRouteSpecs', () => {
       },
     };
 
-    expect(() => getRouteSpecs(specs, '/b', 'get')).toThrow();
+    expect(() => getRouteSpecs(specs, '/b', 'get')).toThrow('[oa-client:4]');
   });
   it('should get specs.paths[path][method]', () => {
     const specs = {

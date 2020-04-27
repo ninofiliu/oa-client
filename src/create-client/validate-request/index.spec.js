@@ -25,7 +25,7 @@ describe('validateRequest', () => {
       queryParams,
       body,
       contentType,
-    )).toThrow();
+    )).toThrow('[oa-client:103]');
   });
   it('throws for invalid query params', () => {
     const validationLevel = 'error';
@@ -51,7 +51,7 @@ describe('validateRequest', () => {
       queryParams,
       body,
       contentType,
-    )).toThrow();
+    )).toThrow('[oa-client:103]');
   });
   it('throws for invalid body', () => {
     const validationLevel = 'error';
@@ -77,7 +77,7 @@ describe('validateRequest', () => {
       queryParams,
       body,
       contentType,
-    )).toThrow();
+    )).toThrow('[oa-client:103]');
   });
   it('does not throw for valid all', () => {
     const validationLevel = 'error';

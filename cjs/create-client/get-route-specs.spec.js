@@ -13,7 +13,7 @@ describe('getRouteSpecs', () => {
         }
       }
     };
-    expect(() => (0, _getRouteSpecs.default)(specs, '/b', 'get')).toThrow();
+    expect(() => (0, _getRouteSpecs.default)(specs, '/b', 'get')).toThrow('[oa-client:4]');
   });
   it('should get specs.paths[path][method]', () => {
     const specs = {
