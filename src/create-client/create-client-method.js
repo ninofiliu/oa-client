@@ -16,7 +16,6 @@ export default (specs, callers, method, origin, validationLevel) => (
   ) => {
     const routeSpecs = getRouteSpecs(specs, path, method);
     validateRequest(validationLevel, routeSpecs, pathParams, queryParams, body, contentType);
-    validateRequest(validationLevel, routeSpecs, pathParams, queryParams, body, contentType);
     const caller = getCaller(callers, routeSpecs, path);
     const callOrigin = getOrigin(origin, specs);
     const callPath = getCallPath(path, pathParams);

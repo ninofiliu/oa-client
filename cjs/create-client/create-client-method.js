@@ -29,7 +29,6 @@ var _default = (specs, callers, method, origin, validationLevel) => async (path,
 }) => {
   const routeSpecs = (0, _getRouteSpecs.default)(specs, path, method);
   (0, _validateRequest.default)(validationLevel, routeSpecs, pathParams, queryParams, body, contentType);
-  (0, _validateRequest.default)(validationLevel, routeSpecs, pathParams, queryParams, body, contentType);
   const caller = (0, _getCaller.default)(callers, routeSpecs, path);
   const callOrigin = (0, _getOrigin.default)(origin, specs);
   const callPath = (0, _getCallPath.default)(path, pathParams);

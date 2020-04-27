@@ -11,7 +11,7 @@ var _OAClientError = _interopRequireDefault(require("../../errors/OAClientError"
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var _default = (validationLevel, routeSpecs, contentType, body) => {
+var _default = (routeSpecs, contentType, body) => {
   const {
     requestBody
   } = routeSpecs;
@@ -38,7 +38,7 @@ var _default = (validationLevel, routeSpecs, contentType, body) => {
   const {
     schema
   } = requestBody.content[contentType];
-  (0, _validate.default)(validationLevel, schema, body);
+  (0, _validate.default)(schema, body);
 };
 
 exports.default = _default;

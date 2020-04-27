@@ -6,7 +6,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 describe('validateBody', () => {
   it('throws for a body that does not match the body schema', () => {
-    const validationLevel = 'error';
     const routeSpecs = {
       requestBody: {
         content: {
@@ -20,10 +19,9 @@ describe('validateBody', () => {
     };
     const contentType = 'application/json';
     const body = 'hello';
-    expect(() => (0, _validateBody.default)(validationLevel, routeSpecs, contentType, body)).toThrow('[oa-client:103]');
+    expect(() => (0, _validateBody.default)(routeSpecs, contentType, body)).toThrow('[oa-client:103]');
   });
   it('does not throw for a body that matches the body schema', () => {
-    const validationLevel = 'error';
     const routeSpecs = {
       requestBody: {
         content: {
@@ -37,6 +35,6 @@ describe('validateBody', () => {
     };
     const contentType = 'application/json';
     const body = 10;
-    expect(() => (0, _validateBody.default)(validationLevel, routeSpecs, contentType, body)).not.toThrow();
+    expect(() => (0, _validateBody.default)(routeSpecs, contentType, body)).not.toThrow();
   });
 });

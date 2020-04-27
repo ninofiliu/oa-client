@@ -2,7 +2,6 @@ import validate from './validate';
 
 describe('validate', () => {
   it('throws if data does not match schema, with an explanative message', () => {
-    const validationLevel = 'error';
     const schema = {
       type: 'object',
       properties: {
@@ -15,7 +14,7 @@ describe('validate', () => {
       bar: 10,
     };
 
-    expect(() => validate(validationLevel, schema, data)).toThrow([
+    expect(() => validate(schema, data)).toThrow([
       '[oa-client:103] Data does not pass validation: data.foo should be number',
       'schema path: #/properties/foo/type',
       'params: {"type":"number"}',
@@ -23,10 +22,9 @@ describe('validate', () => {
     ].join('\n'));
   });
   it('does not throw if data matches schema', () => {
-    const validationLevel = 'error';
     const schema = { type: 'number' };
     const data = 10;
 
-    expect(() => validate(validationLevel, schema, data)).not.toThrow();
+    expect(() => validate(schema, data)).not.toThrow();
   });
 });

@@ -6,7 +6,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 describe('validateParam', () => {
   it('throws for absent required parameter', () => {
-    const validationLevel = 'error';
     const parameter = {
       in: 'query',
       name: 'userId',
@@ -16,10 +15,9 @@ describe('validateParam', () => {
       }
     };
     const value = undefined;
-    expect(() => (0, _validateParam.default)(validationLevel, parameter, value)).toThrow('[oa-client:104]');
+    expect(() => (0, _validateParam.default)(parameter, value)).toThrow('[oa-client:104]');
   });
   it('throws for invalid required parameter', () => {
-    const validationLevel = 'error';
     const parameter = {
       in: 'query',
       name: 'userId',
@@ -29,10 +27,9 @@ describe('validateParam', () => {
       }
     };
     const value = 10.5;
-    expect(() => (0, _validateParam.default)(validationLevel, parameter, value)).toThrow('[oa-client:103]');
+    expect(() => (0, _validateParam.default)(parameter, value)).toThrow('[oa-client:103]');
   });
   it('does not throw for valid required parameter', () => {
-    const validationLevel = 'error';
     const parameter = {
       in: 'query',
       name: 'userId',
@@ -42,6 +39,6 @@ describe('validateParam', () => {
       }
     };
     const value = 10;
-    expect(() => (0, _validateParam.default)(validationLevel, parameter, value)).not.toThrow();
+    expect(() => (0, _validateParam.default)(parameter, value)).not.toThrow();
   });
 });

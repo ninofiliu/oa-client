@@ -1,7 +1,7 @@
 import validate from './validate';
 import OAClientError from '../../errors/OAClientError';
 
-export default (validationLevel, routeSpecs, contentType, body) => {
+export default (routeSpecs, contentType, body) => {
   const { requestBody } = routeSpecs;
   if (!requestBody) { return; }
   if (!body && !requestBody.required) { return; }
@@ -12,5 +12,5 @@ export default (validationLevel, routeSpecs, contentType, body) => {
     throw new OAClientError(102, { contentType, requestBody });
   }
   const { schema } = requestBody.content[contentType];
-  validate(validationLevel, schema, body);
+  validate(schema, body);
 };

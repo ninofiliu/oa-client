@@ -14,17 +14,24 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var _default = (validationLevel, routeSpecs, pathParams, queryParams, body, contentType) => {
   if (validationLevel === 'off') return;
 
-  if (routeSpecs.parameters) {
-    for (const parameter of routeSpecs.parameters) {
-      const value = {
-        path: pathParams,
-        query: queryParams
-      }[parameter.in][parameter.name];
-      (0, _validateParam.default)(validationLevel, parameter, value);
+  try {
+    if (routeSpecs.parameters) {
+      for (const parameter of routeSpecs.parameters) {
+        const value = {
+          path: pathParams,
+          query: queryParams
+        }[parameter.in][parameter.name];
+        (0, _validateParam.default)(parameter, value);
+      }
     }
-  }
 
-  (0, _validateBody.default)(validationLevel, routeSpecs, contentType, body);
+    (0, _validateBody.default)(routeSpecs, contentType, body);
+  } catch (e) {
+    if (!e.message.startsWith('[oa-client:')) throw e; // eslint-disable-next-line no-console
+
+    if (validationLevel === 'warn') console.warn(e);
+    throw e;
+  }
 };
 
 exports.default = _default;
