@@ -1,12 +1,15 @@
 import createClientMethod from './create-client-method';
+import { Callers, Specs, ValidationLevel } from '../types';
 
 export default (
-  specs,
-  callers,
+  specs: Specs,
+  callers: Callers,
   {
     origin = null,
     validationLevel = 'off',
-  } = { origin: null, validationLevel: 'off' },
+  }
+  : { origin: null | string, validationLevel: ValidationLevel }
+  = { origin: null, validationLevel: 'off' },
 ) => ({
   get: createClientMethod(specs, callers, 'get', origin, validationLevel),
   head: createClientMethod(specs, callers, 'head', origin, validationLevel),
