@@ -19,7 +19,9 @@
   "main": "cjs",
   "browser": "src",
   "scripts": {
-    "build": "babel src --out-dir cjs",
+    "build/commonjs": "tsc --outDir ./dist/commonjs --module commonjs",
+    "build/es2015": "tsc --outDir ./dist/es2015 --module es2015",
+    "build": "rm -rf build && npm run build/commonjs && npm run build/es2015",
     "test": "jest",
     "tdd": "jest --watch"
   },
@@ -33,7 +35,8 @@
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-jest": "^23.8.2",
-    "jest": "^25.4.0"
+    "jest": "^25.4.0",
+    "typescript": "^3.8.3"
   },
   "dependencies": {
     "ajv": "^6.12.2"
