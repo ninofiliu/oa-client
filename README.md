@@ -67,9 +67,11 @@ const callers = {
   },
   'authorized-post': async (url, body) => {
     const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
     headers.append('Authorization', `Bearer ${localStorage.token}`);
     const resp = await fetch(url, {
       method: 'POST',
+      headers,
       body: JSON.stringify(body),
     });
     const json = await resp.json();
