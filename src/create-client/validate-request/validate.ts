@@ -6,5 +6,5 @@ const ajv = new Ajv();
 export default (schema, data) => {
   const valid = ajv.validate(schema, data);
   if (valid) return;
-  throw new OAClientError(103, { ajvError: ajv.errors[0], data });
+  throw new OAClientError(103, { ajvError: (ajv.errors as any[])[0], data });
 };

@@ -10,7 +10,7 @@ export default (specs, callers, method, origin, validationLevel) => (
     {
       pathParams = {},
       queryParams = {},
-      body,
+      body = null,
       contentType = 'application/json',
     } = { pathParams: {}, queryParams: {}, contentType: 'application/json' },
   ) => {

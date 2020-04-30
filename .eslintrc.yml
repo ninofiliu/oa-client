@@ -5,6 +5,7 @@ env:
 extends:
   - airbnb-base
   - plugin:jest/recommended
+  - plugin:import/typescript
 globals:
   Atomics: readonly
   SharedArrayBuffer: readonly
@@ -16,6 +17,7 @@ plugins:
   - '@typescript-eslint'
 rules:
   default-case: off
+  import/extensions: [error, never]
   guard-for-in: off
   max-len: off
   no-restricted-syntax: off
