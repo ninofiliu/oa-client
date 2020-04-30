@@ -3,7 +3,7 @@
     "allowJs": true,
     "esModuleInterop": true,
     "moduleResolution": "node",
-    "noImplicitAny": false,
+    "noImplicitAny": true,
     "outDir": "placeholder",
     "strict": true,
     "target": "es2015",
