@@ -12,7 +12,7 @@ import getCaller from './get-caller';
 import getOrigin from './get-origin';
 import getCallPath from './get-call-path';
 import validateRequest from './validate-request';
-export default (specs, callers, method, origin, validationLevel) => ((path, { pathParams = {}, queryParams = {}, body, contentType = 'application/json', } = { pathParams: {}, queryParams: {}, contentType: 'application/json' }) => __awaiter(void 0, void 0, void 0, function* () {
+export default (specs, callers, method, origin, validationLevel) => ((path, { pathParams = {}, queryParams = {}, body = null, contentType = 'application/json', } = { pathParams: {}, queryParams: {}, body: null, contentType: 'application/json' }) => __awaiter(void 0, void 0, void 0, function* () {
     const routeSpecs = getRouteSpecs(specs, path, method);
     validateRequest(validationLevel, routeSpecs, pathParams, queryParams, body, contentType);
     const caller = getCaller(callers, routeSpecs, path);

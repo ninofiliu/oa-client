@@ -17,7 +17,7 @@ const get_caller_1 = __importDefault(require("./get-caller"));
 const get_origin_1 = __importDefault(require("./get-origin"));
 const get_call_path_1 = __importDefault(require("./get-call-path"));
 const validate_request_1 = __importDefault(require("./validate-request"));
-exports.default = (specs, callers, method, origin, validationLevel) => ((path, { pathParams = {}, queryParams = {}, body, contentType = 'application/json', } = { pathParams: {}, queryParams: {}, contentType: 'application/json' }) => __awaiter(void 0, void 0, void 0, function* () {
+exports.default = (specs, callers, method, origin, validationLevel) => ((path, { pathParams = {}, queryParams = {}, body = null, contentType = 'application/json', } = { pathParams: {}, queryParams: {}, body: null, contentType: 'application/json' }) => __awaiter(void 0, void 0, void 0, function* () {
     const routeSpecs = get_route_specs_1.default(specs, path, method);
     validate_request_1.default(validationLevel, routeSpecs, pathParams, queryParams, body, contentType);
     const caller = get_caller_1.default(callers, routeSpecs, path);

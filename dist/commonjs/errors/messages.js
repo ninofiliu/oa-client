@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = {
+const messages = {
     0: ({ test }) => `Test is equal to ${test}`,
     1: ({ path }) => `The path ${path} does not specify a route type. Make sure your OpenAPI specs have a .paths['${path}']['x-type'] key.`,
     2: ({ type, callers }) => `No caller of type ${type}, only found ${Object.keys(callers)}. Make sure your caller object has a ${type} key.`,
@@ -16,4 +16,6 @@ exports.default = {
         `data: ${JSON.stringify(data)}`,
     ].join('\n'),
     104: ({ parameter }) => `${parameter.name} is required.`,
+    105: ({ schema }) => `Expected a schema, got ${schema}. Please check your specs.`,
 };
+exports.default = messages;

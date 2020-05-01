@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const validate_1 = __importDefault(require("./validate"));
 const OAClientError_1 = __importDefault(require("../../errors/OAClientError"));
 exports.default = (routeSpecs, contentType, body) => {
-    const { requestBody } = routeSpecs;
+    const requestBody = routeSpecs.requestBody;
     if (!requestBody) {
         return;
     }

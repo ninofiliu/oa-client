@@ -7,6 +7,8 @@ const ajv_1 = __importDefault(require("ajv"));
 const OAClientError_1 = __importDefault(require("../../errors/OAClientError"));
 const ajv = new ajv_1.default();
 exports.default = (schema, data) => {
+    if (!schema)
+        throw new OAClientError_1.default(105, { schema });
     const valid = ajv.validate(schema, data);
     if (valid)
         return;

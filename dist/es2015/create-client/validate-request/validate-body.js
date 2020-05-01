@@ -1,7 +1,7 @@
 import validate from './validate';
 import OAClientError from '../../errors/OAClientError';
 export default (routeSpecs, contentType, body) => {
-    const { requestBody } = routeSpecs;
+    const requestBody = routeSpecs.requestBody;
     if (!requestBody) {
         return;
     }
