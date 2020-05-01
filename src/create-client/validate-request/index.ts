@@ -1,7 +1,16 @@
+import { ParameterObject } from 'openapi3-ts';
 import validateParam from './validate-param';
 import validateBody from './validate-body';
+import { ValidationLevel, RouteSpecs, Params } from '../../types';
 
-export default (validationLevel, routeSpecs, pathParams, queryParams, body, contentType) => {
+export default (
+  validationLevel: ValidationLevel,
+  routeSpecs: RouteSpecs,
+  pathParams: Params,
+  queryParams: Params,
+  body: any,
+  contentType: string,
+) => {
   if (validationLevel === 'off') return;
   try {
     if (routeSpecs.parameters) {
@@ -9,7 +18,7 @@ export default (validationLevel, routeSpecs, pathParams, queryParams, body, cont
         const value = {
           path: pathParams,
           query: queryParams,
-        }[parameter.in][parameter.name];
+        }[(parameter as ParameterObject).in as 'path' | 'query'][(parameter as ParameterObject).name];
         validateParam(parameter, value);
       }
     }

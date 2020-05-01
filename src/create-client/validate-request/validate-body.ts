@@ -1,8 +1,10 @@
+import { RequestBodyObject } from 'openapi3-ts';
 import validate from './validate';
 import OAClientError from '../../errors/OAClientError';
+import { RouteSpecs } from '../../types';
 
-export default (routeSpecs, contentType, body) => {
-  const { requestBody } = routeSpecs;
+export default (routeSpecs: RouteSpecs, contentType: string, body: any) => {
+  const requestBody = routeSpecs.requestBody as RequestBodyObject;
   if (!requestBody) { return; }
   if (!body && !requestBody.required) { return; }
   if (!body && requestBody.required) {
