@@ -3,16 +3,25 @@ import getCaller from './get-caller';
 import getOrigin from './get-origin';
 import getCallPath from './get-call-path';
 import validateRequest from './validate-request';
+import { Specs, Callers, ValidationLevel, Params } from '../types';
 
-export default (specs, callers, method, origin, validationLevel) => (
+export default (
+  specs: Specs,
+  callers: Callers,
+  method: string,
+  origin: null | string,
+  validationLevel: ValidationLevel,
+) => (
   async (
-    path,
+    path: string,
     {
       pathParams = {},
       queryParams = {},
       body = null,
       contentType = 'application/json',
-    } = { pathParams: {}, queryParams: {}, contentType: 'application/json' },
+    }
+    : { pathParams: Params, queryParams: Params, body: any, contentType: string }
+    = { pathParams: {}, queryParams: {}, body: null, contentType: 'application/json' },
   ) => {
     const routeSpecs = getRouteSpecs(specs, path, method);
     validateRequest(validationLevel, routeSpecs, pathParams, queryParams, body, contentType);

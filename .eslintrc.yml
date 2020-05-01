@@ -22,4 +22,5 @@ rules:
   max-len: off
   no-restricted-syntax: off
   no-unused-vars: off
+  object-curly-newline: off
   '@typescript-eslint/no-unused-vars': [error]

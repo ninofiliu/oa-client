@@ -1,4 +1,6 @@
-export default (path, pathParams) => {
+import { Params } from '../types';
+
+export default (path: string, pathParams: Params) => {
   let ret = path;
   for (const key in pathParams) {
     if (!ret.includes(`{${key}}`)) {

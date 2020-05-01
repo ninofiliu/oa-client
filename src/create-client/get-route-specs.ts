@@ -1,6 +1,7 @@
 import OAClientError from '../errors/OAClientError';
+import { Specs } from '../types';
 
-export default (specs, path, method) => {
+export default (specs: Specs, path: string, method: string) => {
   if (!(path in specs.paths)) {
     throw new OAClientError(4, { path });
   }

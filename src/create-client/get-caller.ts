@@ -1,6 +1,7 @@
 import OAClientError from '../errors/OAClientError';
+import { Callers, RouteSpecs } from '../types';
 
-export default (callers, routeSpecs, path) => {
+export default (callers: Callers, routeSpecs: RouteSpecs, path: string) => {
   if (!routeSpecs['x-type']) {
     throw new OAClientError(1, { path });
   }
