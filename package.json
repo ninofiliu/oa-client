@@ -19,23 +19,30 @@
   "main": "cjs",
   "browser": "src",
   "scripts": {
-    "build": "babel src --out-dir cjs",
-    "test": "jest",
-    "tdd": "jest --watch"
+    "build/commonjs": "tsc --outDir ./dist/commonjs --module commonjs",
+    "build/es2015": "tsc --outDir ./dist/es2015 --module es2015",
+    "build": "rm -rf build && npm run build/commonjs && npm run build/es2015",
+    "test": "jest $PWD/src",
+    "tdd": "jest --watch $PWD/src"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
+    "@babel/preset-typescript": "^7.9.0",
     "@types/jest": "^25.2.1",
+    "@typescript-eslint/eslint-plugin": "^2.30.0",
+    "@typescript-eslint/parser": "^2.30.0",
     "babel-jest": "^25.4.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-jest": "^23.8.2",
-    "jest": "^25.4.0"
+    "jest": "^25.4.0",
+    "typescript": "^3.8.3"
   },
   "dependencies": {
-    "ajv": "^6.12.2"
+    "ajv": "^6.12.2",
+    "openapi3-ts": "^1.3.0"
   }
 }

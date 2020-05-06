@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "declaration": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "outDir": "placeholder",
+    "strict": true,
+    "target": "es2015",
+  },
+  "exclude": ["./dist"]
+}
