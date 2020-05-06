@@ -10,7 +10,9 @@
     "commonjs",
     "browser",
     "es6",
-    "helper"
+    "helper",
+    "typescript",
+    "client"
   ],
   "homepage": "https://github.com/ninofiliu/oa-client",
   "license": "MIT",
