@@ -19,6 +19,7 @@
   "author": "Nino Filiu <nino.filiu@gmail.com> (https://ninofiliu.github.io)",
   "repository": "github:ninofiliu/oa-client",
   "main": "cjs",
+  "module": "src",
   "browser": "src",
   "scripts": {
     "build/commonjs": "tsc --outDir ./dist/commonjs --module commonjs",
