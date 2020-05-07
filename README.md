@@ -1,6 +1,64 @@
-# OpenAPI Client
+# oa-client
 
-Harness all the power of your backend's OpenAPI spec files by generating a client object in a few lines.
+Harness all the power of your backend's OpenAPI v3 spec files by generating a client object in a few lines.
+
+```
+┌───────────────┐
+│ OpenAPI specs ├───┐
+└───────────────┘   │   ┌───────────┐   ╔═══════════════╗
+                    ├─>─┤ oa-client ├─>─╢ Client object ║
+      ┌─────────┐   │   └───────────┘   ╚═══════════════╝
+      │ Callers ├───┘
+      └─────────┘
+```
+
+## Features
+
+🚀 Creates at runtime a client object in a few lines ([read more...](#getting-started))
+```js
+import { createClient } from 'oa-client';
+const client = createClient(specs, callers, {
+  origin: 'https://my.api.com',
+  validationLevel: 'error',
+});
+```
+
+🚀 Throws if route does not exists in the OpenAPI specs
+```yaml
+# OpenAPI specs
+paths:
+  '/foo': {}
+```
+```js
+client.get('/bar');
+// throws [oa-client:4] Path /bar not found. Make sure your OpenAPI specs have a .paths['/bar'] key.
+```
+
+🚀 Optionally throws for invalid path, query, or body
+```yaml
+# OpenAPI specs
+paths:
+  /users/{userId}:
+    get:
+      parameters:
+        - in: path
+          name: userId
+          schema:
+            type: integer
+```
+```js
+client.get('/users/{userId}', { pathParams: { userId: 'john' } })
+// throws [oa-client:103] Data does not pass validation: data.userId should be an integer
+```
+
+🚀 Compiles the path and query params
+```js
+client.post('/new-user/{job}', {
+  pathParams: { job: 'director' },
+  queryParams: { name: 'Gaspar Noé' },
+})
+// calls /new-user/director?name=Gaspar+No%C3%A9
+```
 
 ## Getting started
 
@@ -128,6 +186,7 @@ In `oa-client`, you fully own your generic HTTP callers: you write them yourself
 ```
 +-------------------------------+
 | Written with <3 by Nino Filiu |
+|  Contributions are welcomed!  |
 +-------------------------------+
          \   ^__^ 
           \  (oo)\_______
