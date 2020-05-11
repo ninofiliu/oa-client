@@ -1,26 +1,19 @@
 # oa-client
 
-Harness all the power of your backend's OpenAPI v3 spec files by generating a client object in a few lines.
-
-```
-┌───────────────┐
-│ OpenAPI specs ├───┐
-└───────────────┘   │   ┌───────────┐   ╔═══════════════╗
-                    ├─>─┤ oa-client ├─>─╢ Client object ║
-      ┌─────────┐   │   └───────────┘   ╚═══════════════╝
-      │ Callers ├───┘
-      └─────────┘
-```
+Harness all the power of your backend's OpenAPI v3 spec files by generating a client object in a few lines
 
 ## Features
 
-🚀 Creates at runtime a client object in a few lines ([read more...](#getting-started))
+🚀 Creates at runtime a client object in a few lines (read more in [Getting Started](#getting-started))
 ```js
+// Creation
 import { createClient } from 'oa-client';
 const client = createClient(specs, callers, {
   origin: 'https://my.api.com',
   validationLevel: 'error',
 });
+// Usage
+client[/* path */][/* method */](/* optional params */).then(apiResponse => { /* ... */ })
 ```
 
 🚀 Throws if route does not exists in the OpenAPI specs
@@ -30,7 +23,7 @@ paths:
   '/foo': {}
 ```
 ```js
-client.get('/bar');
+client['/bar'].get()
 // throws [oa-client:4] Path /bar not found. Make sure your OpenAPI specs have a .paths['/bar'] key.
 ```
 
@@ -47,13 +40,13 @@ paths:
             type: integer
 ```
 ```js
-client.get('/users/{userId}', { pathParams: { userId: 'john' } })
+client['/users/{userId}'].get({ pathParams: { userId: 'john' } })
 // throws [oa-client:103] Data does not pass validation: data.userId should be an integer
 ```
 
 🚀 Compiles the path and query params
 ```js
-client.post('/new-user/{job}', {
+client['/new-user/{job}'].post({
   pathParams: { job: 'director' },
   queryParams: { name: 'Gaspar Noé' },
 })
@@ -160,14 +153,14 @@ Thereafter, `oa-client` does all the work of building the full URL and validatin
 In this example, this
 
 ```js
-const responseData = client.get('/users/{userId}', { pathParams: { userId: 123 } })
+const data = await client['/users/{userId}'].get({ pathParams: { userId: 123 } });
 ```
 
 is equivalent to
 
 ```js
 const url = new URL('https://my.api.com/users/123');
-callers['unauthentified-get'](url);
+const data = await callers['unauthentified-get'](url);
 ```
 
 
