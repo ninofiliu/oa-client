@@ -26,8 +26,8 @@
     "build/commonjs": "tsc --outDir ./dist/commonjs --module commonjs",
     "build/es2015": "tsc --outDir ./dist/es2015 --module es2015 --declaration --declarationDir ./dist/types",
     "build": "rm -rf build && npm run build/commonjs && npm run build/es2015",
-    "test": "jest $PWD/src",
-    "tdd": "jest --watch $PWD/src"
+    "test": "jest",
+    "tdd": "jest --watch"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
