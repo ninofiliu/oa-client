@@ -25,7 +25,7 @@
   "scripts": {
     "build/commonjs": "tsc --outDir ./dist/commonjs --module commonjs",
     "build/es2015": "tsc --outDir ./dist/es2015 --module es2015 --declaration --declarationDir ./dist/types",
-    "build": "rm -rf build && npm run build/commonjs && npm run build/es2015",
+    "build": "rm -rf dist && npm run build/commonjs && npm run build/es2015",
     "test": "jest",
     "tdd": "jest --watch"
   },
