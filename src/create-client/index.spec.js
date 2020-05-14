@@ -25,16 +25,6 @@ describe('createClient', () => {
   afterEach(() => {
     jest.resetAllMocks();
   });
-  it('throws explicitly for non-existing path', () => {
-    expect(() => {
-      client['/non/existing/path'].get();
-    }).toThrow('[oa-client:4]');
-  });
-  it('throws explicitly for non-existing methods', () => {
-    expect(() => {
-      client['/users/{id}'].get();
-    }).toThrow('[oa-client:5]');
-  });
   it('should call the right caller with a compiled URL and the body', () => {
     client['/users/{id}'].post({
       pathParams: { id: '123456' },
