@@ -16,17 +16,6 @@ const client = createClient(specs, callers, {
 client[/* path */][/* method */](/* optional params */).then(apiResponse => { /* ... */ })
 ```
 
-🚀 Throws if route does not exists in the OpenAPI specs
-```yaml
-# OpenAPI specs
-paths:
-  '/foo': {}
-```
-```js
-client['/bar'].get()
-// throws [oa-client:4] Path /bar not found. Make sure your OpenAPI specs have a .paths['/bar'] key.
-```
-
 🚀 Optionally throws for invalid path, query, or body
 ```yaml
 # OpenAPI specs
