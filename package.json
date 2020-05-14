@@ -1,6 +1,6 @@
 {
   "name": "oa-client",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "Harness all the power of your backend's OpenAPI spec files by generating a client object in a few lines.",
   "keywords": [
     "open-api",
@@ -21,9 +21,6 @@
   "main": "dist",
   "types": "types/index.d.ts",
   "scripts": {
-    "build/types": "tsc -d --outDir types",
-    "build/dist": "babel types --out-dir dist",
-    "build": "rm -rf dist && npm run build/types && npm run build/dist",
     "test": "jest",
     "tdd": "jest --watch"
   },
