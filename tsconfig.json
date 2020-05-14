@@ -6,10 +6,11 @@
     "noImplicitAny": true,
     "outDir": "placeholder",
     "strict": true,
-    "target": "es2015",
+    "target": "es6",
   },
   "exclude": [
     "dist",
+    "types",
     "**/*.spec.js"
   ]
 }

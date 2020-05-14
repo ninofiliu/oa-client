@@ -1,6 +1,28 @@
 {
-  "presets": [
-    [ "@babel/preset-env", { "targets": { "node": "current"} } ],
-    "@babel/preset-typescript"
-  ]
+  "env": {
+    "development": {
+      "presets": [
+        [
+          "@babel/preset-env", {
+            "targets": {
+              "ie": "11"
+            }
+          }
+        ],
+        "@babel/preset-typescript"
+      ]
+    },
+    "test": {
+      "presets": [
+        [
+          "@babel/preset-env", {
+            "targets": {
+              "node": "current"
+            }
+          }
+        ],
+        "@babel/preset-typescript"
+      ]
+    }
+  }
 }
