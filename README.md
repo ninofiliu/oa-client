@@ -65,6 +65,8 @@ const { createClient } = require('oa-client');
 
 You don't need to add anything compared to normal specs, except for `.paths[path][method]['x-type']`, that defines the *caller*
 
+Note that `oa-client` does not resolve specs for you. If you have `$refs`, you should use a package like [json-schema-ref-parser](https://www.npmjs.com/package/@apidevtools/json-schema-ref-parser) to resolve them.
+
 ```js
 const specs = {
   openapi: '3.0.0',
