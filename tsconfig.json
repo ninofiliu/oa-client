@@ -4,7 +4,7 @@
     "esModuleInterop": true,
     "moduleResolution": "node",
     "noImplicitAny": true,
-    "outDir": "placeholder",
+    "outDir": "dist",
     "strict": true,
     "target": "es6",
   },

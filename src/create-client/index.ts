@@ -23,7 +23,7 @@ const createClientPathMethod = (
 ) => {
   const routeSpecs = specs.paths[path][method];
   validateRequest(validationLevel, routeSpecs, pathParams, queryParams, body, contentType);
-  const caller = getCaller(callers, routeSpecs, path);
+  const caller = getCaller(callers, routeSpecs, path, method);
   const callOrigin = getOrigin(origin, specs);
   const callPath = getCallPath(path, pathParams);
   const callUrl = new URL(callOrigin + callPath);

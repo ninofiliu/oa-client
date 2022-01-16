@@ -21,6 +21,7 @@
   "main": "dist",
   "types": "types/index.d.ts",
   "scripts": {
+    "build": "tsc --project .",
     "test": "jest",
     "tdd": "jest --watch"
   },
