@@ -1,2 +1,3 @@
-declare const _default: (callers: Record<string, import("../types").Caller>, routeSpecs: import("openapi3-ts").OperationObject, method: string) => import("../types").Caller;
+import { Callers, RouteSpecs } from '../types';
+declare const _default: (callers: Callers, routeSpecs: RouteSpecs, method: string) => import("../types").Caller;
 export default _default;

@@ -1,2 +1,3 @@
-declare const _default: (path: string, pathParams: Record<string, any>) => string;
+import { Params } from '../types';
+declare const _default: (path: string, pathParams: Params) => string;
 export default _default;

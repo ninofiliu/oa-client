@@ -1,2 +1,3 @@
-declare const _default: (origin: string | null, specs: import("openapi3-ts").OpenAPIObject) => string;
+import { Specs } from '../types';
+declare const _default: (origin: null | string, specs: Specs) => string;
 export default _default;
