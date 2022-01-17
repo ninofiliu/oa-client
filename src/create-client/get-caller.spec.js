@@ -1,22 +1,22 @@
 import getCaller from './get-caller';
 
 describe('getCaller', () => {
-  it('throws if the route specs does not specify a type', () => {
-    const callers = {};
-    const routeSpecs = {};
+  it('returns callers[routeSpecs[\'x-type\']] if it exists', () => {
+    const callers = { foo: 'FOO_CALLER' };
+    const routeSpecs = { 'x-type': 'foo' };
 
-    expect(() => getCaller(callers, routeSpecs, '/a')).toThrow('[oa-client:1]');
+    expect(getCaller(callers, routeSpecs, 'get')).toEqual('FOO_CALLER');
   });
-  it('throws if the route specs specifies a type that is not a caller', () => {
+  it('returns callers[method] if it exists', () => {
+    const callers = { get: 'GET_CALLER', post: 'POST_CALLER' };
+    const routeSpecs = { };
+
+    expect(getCaller(callers, routeSpecs, 'post')).toEqual('POST_CALLER');
+  });
+  it('throws if no caller matches', () => {
     const callers = {};
     const routeSpecs = { 'x-type': 'foo' };
 
-    expect(() => getCaller(callers, routeSpecs, '/a')).toThrow('[oa-client:2]');
-  });
-  it('returns callers[routeSpecs[\'x-type\']]', () => {
-    const callers = { foo: 'bar' };
-    const routeSpecs = { 'x-type': 'foo' };
-
-    expect(getCaller(callers, routeSpecs, '/a')).toEqual('bar');
+    expect(() => getCaller(callers, routeSpecs, 'get')).toThrow('[oa-client:2]');
   });
 });

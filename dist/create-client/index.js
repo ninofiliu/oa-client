@@ -34,7 +34,7 @@ var createClientPathMethod = function createClientPathMethod(specs, path, method
 
     var routeSpecs = specs.paths[path][method];
     (0, _validateRequest.default)(validationLevel, routeSpecs, pathParams, queryParams, body, contentType);
-    var caller = (0, _getCaller.default)(callers, routeSpecs, path);
+    var caller = (0, _getCaller.default)(callers, routeSpecs, method);
     var callOrigin = (0, _getOrigin.default)(origin, specs);
     var callPath = (0, _getCallPath.default)(path, pathParams);
     var callUrl = new URL(callOrigin + callPath);

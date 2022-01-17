@@ -63,7 +63,7 @@ const { createClient } = require('oa-client');
 
 ### 3. Have somewhere your OpenAPI specs as a JS object
 
-You don't need to add anything compared to normal specs, except for `.paths[path][method]['x-type']`, that defines the *caller*
+You don't need to add anything compared to normal specs, except for an optional `.paths[path][method]['x-type']`, that defines the *caller*, more on them below. If this key is omitted, its value defaults to the request type (e.g. `"get"` or `"post"`).
 
 Note that `oa-client` does not resolve specs for you. If you have `$refs`, you should use a package like [json-schema-ref-parser](https://www.npmjs.com/package/@apidevtools/json-schema-ref-parser) to resolve them.
 
@@ -74,7 +74,7 @@ const specs = {
   paths: {
     '/users/{userId}': {
       get: {
-        'x-type': 'default-get', // defines the caller
+        'x-type': 'authorizedGet', // will use the "authorizedGet" caller
         parameters: [
           {
             in: 'path',
@@ -88,6 +88,12 @@ const specs = {
         responses: { /* ... */ }
       },
     },
+    '/status': {
+      get: {
+        // no x-type -> will use the "get" caller
+        responses: { /* ... */ }
+      }
+    }
   },
 };
 ```
@@ -102,12 +108,20 @@ They are not handled by this package, because they can be very different from on
 
 ```js
 const callers = {
-  'default-get': async (url) => {
+  get: async (url) => {
     const resp = await fetch(url);
     const json = await resp.json();
     return json;
   },
-  'authorized-post': async (url, body) => {
+  authorizedGet: async (url) => {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('Authorization', `Bearer ${localStorage.token}`);
+    const resp = await fetch(url, { headers });
+    const json = await resp.json();
+    return json;
+  },
+  authorizedPost: async (url, body) => {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('Authorization', `Bearer ${localStorage.token}`);
@@ -151,7 +165,7 @@ is equivalent to
 
 ```js
 const url = new URL('https://my.api.com/users/123');
-const data = await callers['unauthentified-get'](url);
+const data = await callers.authorizedGet(url);
 ```
 
 
