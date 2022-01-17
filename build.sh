@@ -10,7 +10,7 @@ echo "Transpiling ES6 to ES5..."
 npx babel types --out-dir dist
 
 echo "Post-clean..."
-rm types/*.js
-rm types/**/*.js
+rm -rf types/*.js
+rm -rf types/**/*.js
 
 echo "ok"
