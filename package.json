@@ -16,7 +16,7 @@
   ],
   "homepage": "https://github.com/ninofiliu/oa-client",
   "license": "MIT",
-  "author": "Nino Filiu <nino.filiu@gmail.com> (https://ninofiliu.github.io)",
+  "author": "Nino Filiu <nino.filiu@gmail.com> (https://ninofiliu.com)",
   "repository": "github:ninofiliu/oa-client",
   "main": "dist",
   "types": "types/index.d.ts",
