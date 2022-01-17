@@ -1,23 +1,21 @@
 env:
   browser: true
-  es6: true
+  es2021: true
   node: true
+  jest/globals: true
 extends:
   - airbnb-base
-  - plugin:jest/recommended
-  - plugin:import/typescript
-globals:
-  Atomics: readonly
-  SharedArrayBuffer: readonly
 parser: '@typescript-eslint/parser'
 parserOptions:
-  ecmaVersion: 2018
+  ecmaVersion: latest
   sourceType: module
 plugins:
   - '@typescript-eslint'
+  - jest
 rules:
   default-case: off
-  import/extensions: [error, never]
+  import/extensions: off
+  import/no-unresolved: off
   guard-for-in: off
   max-len: off
   no-restricted-syntax: off
