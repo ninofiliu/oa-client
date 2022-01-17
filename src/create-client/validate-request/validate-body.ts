@@ -1,4 +1,4 @@
-import { RequestBodyObject } from 'openapi3-ts';
+import type { RequestBodyObject } from 'openapi3-ts';
 import validate from './validate';
 import OAClientError from '../../errors/OAClientError';
 import { RouteSpecs } from '../../types';

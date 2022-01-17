@@ -1,4 +1,4 @@
-import { ParameterObject } from 'openapi3-ts';
+import type { ParameterObject } from 'openapi3-ts';
 import validateParam from './validate-param';
 import validateBody from './validate-body';
 import { ValidationLevel, RouteSpecs, Params } from '../../types';
@@ -24,6 +24,7 @@ export default (
     }
     validateBody(routeSpecs, contentType, body);
   } catch (e) {
+    if (!(e instanceof Error)) throw e;
     if (!e.message.startsWith('[oa-client:')) throw e;
     // eslint-disable-next-line no-console
     if (validationLevel === 'warn') console.warn(e);

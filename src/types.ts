@@ -1,4 +1,4 @@
-import { OpenAPIObject, OperationObject } from 'openapi3-ts';
+import type { OpenAPIObject, OperationObject } from 'openapi3-ts';
 
 export type Specs = OpenAPIObject;
 export type RouteSpecs = OperationObject;
