@@ -1,3 +1,15 @@
-import createClient from './create-client';
-// eslint-disable-next-line import/prefer-default-export
-export { createClient };
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "createClient", {
+  enumerable: true,
+  get: function get() {
+    return _createClient.default;
+  }
+});
+
+var _createClient = _interopRequireDefault(require("./create-client"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
