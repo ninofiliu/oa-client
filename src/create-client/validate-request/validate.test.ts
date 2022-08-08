@@ -29,4 +29,13 @@ describe("validate", () => {
 
     expect(() => validate(schema, data)).not.toThrow();
   });
+  it("supports the format property", () => {
+    const schema = {
+      type: "integer",
+      format: "int32",
+    };
+    const data = 10;
+
+    expect(() => validate(schema, data)).not.toThrow();
+  });
 });
