@@ -18,7 +18,7 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 var _default = function _default(validationLevel, routeSpecs, pathParams, queryParams, body, contentType) {
-  if (validationLevel === 'off') return;
+  if (validationLevel === "off") return;
 
   try {
     if (routeSpecs.parameters) {
@@ -44,9 +44,8 @@ var _default = function _default(validationLevel, routeSpecs, pathParams, queryP
     (0, _validateBody.default)(routeSpecs, contentType, body);
   } catch (e) {
     if (!(e instanceof Error)) throw e;
-    if (!e.message.startsWith('[oa-client:')) throw e; // eslint-disable-next-line no-console
-
-    if (validationLevel === 'warn') console.warn(e);
+    if (!e.message.startsWith("[oa-client:")) throw e;
+    if (validationLevel === "warn") console.warn(e);
     throw e;
   }
 };

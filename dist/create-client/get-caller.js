@@ -10,9 +10,9 @@ var _OAClientError = _interopRequireDefault(require("../errors/OAClientError"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var _default = function _default(callers, routeSpecs, method) {
-  var _a;
+  var _routeSpecs$xType;
 
-  var type = (_a = routeSpecs['x-type']) !== null && _a !== void 0 ? _a : method;
+  var type = (_routeSpecs$xType = routeSpecs["x-type"]) !== null && _routeSpecs$xType !== void 0 ? _routeSpecs$xType : method;
   if (!(type in callers)) throw new _OAClientError.default(2, {
     type: type,
     callers: callers

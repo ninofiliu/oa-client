@@ -8,5 +8,6 @@
     "target": "ESNext",
     "lib": ["ESNext", "DOM"]
   },
-  "exclude": ["dist", "types", "**/*.spec.js"]
+  "include": ["src"],
+  "exclude": ["src/**/*.test.ts"]
 }

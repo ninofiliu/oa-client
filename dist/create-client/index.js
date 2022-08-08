@@ -21,7 +21,7 @@ var createClientPathMethod = function createClientPathMethod(specs, path, method
       pathParams: {},
       queryParams: {},
       body: null,
-      contentType: 'application/json'
+      contentType: "application/json"
     },
         _ref$pathParams = _ref.pathParams,
         pathParams = _ref$pathParams === void 0 ? {} : _ref$pathParams,
@@ -30,7 +30,7 @@ var createClientPathMethod = function createClientPathMethod(specs, path, method
         _ref$body = _ref.body,
         body = _ref$body === void 0 ? null : _ref$body,
         _ref$contentType = _ref.contentType,
-        contentType = _ref$contentType === void 0 ? 'application/json' : _ref$contentType;
+        contentType = _ref$contentType === void 0 ? "application/json" : _ref$contentType;
 
     var routeSpecs = specs.paths[path][method];
     (0, _validateRequest.default)(validationLevel, routeSpecs, pathParams, queryParams, body, contentType);
@@ -50,12 +50,12 @@ var createClientPathMethod = function createClientPathMethod(specs, path, method
 var _default = function _default(specs, callers) {
   var _ref2 = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {
     origin: null,
-    validationLevel: 'off'
+    validationLevel: "off"
   },
       _ref2$origin = _ref2.origin,
       origin = _ref2$origin === void 0 ? null : _ref2$origin,
       _ref2$validationLevel = _ref2.validationLevel,
-      validationLevel = _ref2$validationLevel === void 0 ? 'off' : _ref2$validationLevel;
+      validationLevel = _ref2$validationLevel === void 0 ? "off" : _ref2$validationLevel;
 
   var client = {};
 

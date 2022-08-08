@@ -19,10 +19,10 @@ var messages = {
     return "No caller of type ".concat(type, ", only found ").concat(Object.keys(callers), ". Make sure your caller object has a ").concat(type, " key.");
   },
   3: function _() {
-    return 'No origin nor server URL specified. Call createClient with an origin argument, or specify .servers[0].url in your OpenAPI specs.';
+    return "No origin nor server URL specified. Call createClient with an origin argument, or specify .servers[0].url in your OpenAPI specs.";
   },
   101: function _() {
-    return 'No body passed, but the route requires one.';
+    return "No body passed, but the route requires one.";
   },
   102: function _(_ref4) {
     var contentType = _ref4.contentType,
@@ -32,7 +32,7 @@ var messages = {
   103: function _(_ref5) {
     var ajvError = _ref5.ajvError,
         data = _ref5.data;
-    return ["Data does not pass validation: data".concat(ajvError.dataPath, " ").concat(ajvError.message), "schema path: ".concat(ajvError.schemaPath), "params: ".concat(JSON.stringify(ajvError.params)), "data: ".concat(JSON.stringify(data))].join('\n');
+    return ["Data does not pass validation: data".concat(ajvError.instancePath, " ").concat(ajvError.message), "schema path: ".concat(ajvError.schemaPath), "params: ".concat(JSON.stringify(ajvError.params)), "data: ".concat(JSON.stringify(data))].join("\n");
   },
   104: function _(_ref6) {
     var parameter = _ref6.parameter;
