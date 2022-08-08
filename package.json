@@ -1,6 +1,6 @@
 {
   "name": "oa-client",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "Harness all the power of your backend's OpenAPI spec files by generating a client object in a few lines.",
   "keywords": [
     "open-api",
