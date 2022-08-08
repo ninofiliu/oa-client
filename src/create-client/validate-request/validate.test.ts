@@ -16,7 +16,7 @@ describe("validate", () => {
 
     expect(() => validate(schema, data)).toThrow(
       [
-        "[oa-client:103] Data does not pass validation: data.foo should be number",
+        "[oa-client:103] Data does not pass validation: data/foo must be number",
         "schema path: #/properties/foo/type",
         'params: {"type":"number"}',
         'data: {"foo":"10","bar":10}',

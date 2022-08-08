@@ -6,7 +6,7 @@ specifiers:
   '@babel/preset-env': ^7.18.10
   '@babel/preset-typescript': ^7.18.6
   '@types/jest': ^27.5.2
-  ajv: ^6.12.6
+  ajv: ^8.11.0
   babel-jest: ^27.5.1
   jest: ^27.5.1
   openapi3-ts: ^1.4.0
@@ -14,7 +14,7 @@ specifiers:
   typescript: ^4.7.4
 
 dependencies:
-  ajv: 6.12.6
+  ajv: 8.11.0
 
 devDependencies:
   '@babel/cli': 7.18.10_@babel+core@7.18.10
@@ -1642,12 +1642,12 @@ packages:
       - supports-color
     dev: true
 
-  /ajv/6.12.6:
-    resolution: {integrity: sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g==}
+  /ajv/8.11.0:
+    resolution: {integrity: sha512-wGgprdCvMalC0BztXvitD2hC04YffAvtsUn93JbGXYLAtCUO4xd17mCCZQxUOItiBwZvJScWo8NIvQMQ71rdpg==}
     dependencies:
       fast-deep-equal: 3.1.3
-      fast-json-stable-stringify: 2.1.0
-      json-schema-traverse: 0.4.1
+      json-schema-traverse: 1.0.0
+      require-from-string: 2.0.2
       uri-js: 4.4.1
     dev: false
 
@@ -2195,6 +2195,7 @@ packages:
 
   /fast-json-stable-stringify/2.1.0:
     resolution: {integrity: sha512-lhd/wF+Lk98HZoTCtlVraHtfh5XYijIjalXck7saUtuanSDyLMxnHhSXEDJqHxD7msR8D0uCmqlkwjCV8xvwHw==}
+    dev: true
 
   /fast-levenshtein/2.0.6:
     resolution: {integrity: sha512-DCXu6Ifhqcks7TZKY3Hxp3y6qphY5SJZmrWMDrKcERSOXWQdMhU9Ig/PYrzyw/ul9jOIyh0N4M0tbC5hodg8dw==}
@@ -3048,8 +3049,8 @@ packages:
     resolution: {integrity: sha512-xyFwyhro/JEof6Ghe2iz2NcXoj2sloNsWr/XsERDK/oiPCfaNhl5ONfp+jQdAZRQQ0IJWNzH9zIZF7li91kh2w==}
     dev: true
 
-  /json-schema-traverse/0.4.1:
-    resolution: {integrity: sha512-xbbCH5dCYU5T8LcEhhuh7HJ88HXuW3qsI3Y0zOZFKfZEHcpWiHU/Jxzk629Brsab/mMiHQti9wMP+845RPe3Vg==}
+  /json-schema-traverse/1.0.0:
+    resolution: {integrity: sha512-NM8/P9n3XjXhIZn1lLhkFaACTOURQXjWhV4BA/RnOv8xvgqtqpAX9IO4mRQxSx1Rlo4tqzeqb0sOlruaOy3dug==}
     dev: false
 
   /json5/2.2.1:
@@ -3408,6 +3409,11 @@ packages:
     resolution: {integrity: sha512-fGxEI7+wsG9xrvdjsrlmL22OMTTiHRwAMroiEeMgq8gzoLC/PQr7RsRDSTLUg/bZAZtF+TVIkHc6/4RIKrui+Q==}
     engines: {node: '>=0.10.0'}
     dev: true
+
+  /require-from-string/2.0.2:
+    resolution: {integrity: sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw==}
+    engines: {node: '>=0.10.0'}
+    dev: false
 
   /resolve-cwd/3.0.0:
     resolution: {integrity: sha512-OrZaX2Mb+rJCpH/6CpSqt9xFVpN++x01XnN2ie9g6P5/3xelLAkXWVADpdz1IHD/KFfEXyE6V0U01OQ3UO2rEg==}

@@ -1,3 +1,5 @@
+import { ErrorObject } from "ajv";
+
 type Messages = Record<number, (data: any) => string>;
 
 const messages: Messages = {
@@ -17,7 +19,7 @@ const messages: Messages = {
     )}`,
   103: ({ ajvError, data }) =>
     [
-      `Data does not pass validation: data${ajvError.dataPath} ${ajvError.message}`,
+      `Data does not pass validation: data${ajvError.instancePath} ${ajvError.message}`,
       `schema path: ${ajvError.schemaPath}`,
       `params: ${JSON.stringify(ajvError.params)}`,
       `data: ${JSON.stringify(data)}`,
