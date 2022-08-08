@@ -1,5 +1,5 @@
-import validate from './validate';
-import OAClientError from '../../errors/OAClientError';
+import validate from "./validate";
+import OAClientError from "../../errors/OAClientError";
 
 export default (parameter: any, value: any) => {
   if (!value && !parameter.required) return;

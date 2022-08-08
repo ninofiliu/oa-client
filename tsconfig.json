@@ -5,11 +5,7 @@
     "moduleResolution": "node",
     "noImplicitAny": true,
     "strict": true,
-    "target": "es6",
+    "target": "es6"
   },
-  "exclude": [
-    "dist",
-    "types",
-    "**/*.spec.js"
-  ]
+  "exclude": ["dist", "types", "**/*.spec.js"]
 }

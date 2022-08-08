@@ -1,5 +1,5 @@
-import Ajv from 'ajv';
-import OAClientError from '../../errors/OAClientError';
+import Ajv from "ajv";
+import OAClientError from "../../errors/OAClientError";
 
 const ajv = new Ajv();
 

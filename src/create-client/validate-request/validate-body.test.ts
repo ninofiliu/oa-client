@@ -1,36 +1,38 @@
-import validateBody from './validate-body';
+import validateBody from "./validate-body";
 
-describe('validateBody', () => {
-  it('throws for a body that does not match the body schema', () => {
+describe("validateBody", () => {
+  it("throws for a body that does not match the body schema", () => {
     const routeSpecs = {
       requestBody: {
         content: {
-          'application/json': {
+          "application/json": {
             schema: {
-              type: 'number',
+              type: "number",
             },
           },
         },
       },
     };
-    const contentType = 'application/json';
-    const body = 'hello';
+    const contentType = "application/json";
+    const body = "hello";
 
-    expect(() => validateBody(routeSpecs, contentType, body)).toThrow('[oa-client:103]');
+    expect(() => validateBody(routeSpecs, contentType, body)).toThrow(
+      "[oa-client:103]"
+    );
   });
-  it('does not throw for a body that matches the body schema', () => {
+  it("does not throw for a body that matches the body schema", () => {
     const routeSpecs = {
       requestBody: {
         content: {
-          'application/json': {
+          "application/json": {
             schema: {
-              type: 'number',
+              type: "number",
             },
           },
         },
       },
     };
-    const contentType = 'application/json';
+    const contentType = "application/json";
     const body = 10;
 
     expect(() => validateBody(routeSpecs, contentType, body)).not.toThrow();

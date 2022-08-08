@@ -1,4 +1,4 @@
-import messages from './messages';
+import messages from "./messages";
 
 export default class OAClientError extends Error {
   code: number;

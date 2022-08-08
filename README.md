@@ -5,6 +5,7 @@ Harness all the power of your backend's OpenAPI v3 spec files by generating a cl
 ## Features
 
 🚀 Creates at runtime a client object in a few lines (read more in [Getting Started](#getting-started))
+
 ```js
 // Creation
 import { createClient } from 'oa-client';
@@ -17,6 +18,7 @@ client[/* path */][/* method */](/* optional params */).then(apiResponse => { /*
 ```
 
 🚀 Optionally throws for invalid path, query, or body
+
 ```yaml
 # OpenAPI specs
 paths:
@@ -28,17 +30,19 @@ paths:
           schema:
             type: integer
 ```
+
 ```js
-client['/users/{userId}'].get({ pathParams: { userId: 'john' } })
+client["/users/{userId}"].get({ pathParams: { userId: "john" } });
 // throws [oa-client:103] Data does not pass validation: data.userId should be an integer
 ```
 
 🚀 Compiles the path and query params
+
 ```js
-client['/new-user/{job}'].post({
-  pathParams: { job: 'director' },
-  queryParams: { name: 'Gaspar Noé' },
-})
+client["/new-user/{job}"].post({
+  pathParams: { job: "director" },
+  queryParams: { name: "Gaspar Noé" },
+});
 // calls /new-user/director?name=Gaspar+No%C3%A9
 ```
 
@@ -56,49 +60,55 @@ This package is isomorphic: it can be used both as an ESM or a CommonJS
 
 ```js
 // ok
-import { createClient } from 'oa-client';
+import { createClient } from "oa-client";
 // also ok
-const { createClient } = require('oa-client');
+const { createClient } = require("oa-client");
 ```
 
 ### 3. Have somewhere your OpenAPI specs as a JS object
 
-You don't need to add anything compared to normal specs, except for an optional `.paths[path][method]['x-type']`, that defines the *caller*, more on them below. If this key is omitted, its value defaults to the request type (e.g. `"get"` or `"post"`).
+You don't need to add anything compared to normal specs, except for an optional `.paths[path][method]['x-type']`, that defines the _caller_, more on them below. If this key is omitted, its value defaults to the request type (e.g. `"get"` or `"post"`).
 
 Note that `oa-client` does not resolve specs for you. If you have `$refs`, you should use a package like [json-schema-ref-parser](https://www.npmjs.com/package/@apidevtools/json-schema-ref-parser) to resolve them.
 
 ```js
 const specs = {
-  openapi: '3.0.0',
-  info: { /* ... */ },
+  openapi: "3.0.0",
+  info: {
+    /* ... */
+  },
   paths: {
-    '/users/{userId}': {
+    "/users/{userId}": {
       get: {
-        'x-type': 'authorizedGet', // will use the "authorizedGet" caller
+        "x-type": "authorizedGet", // will use the "authorizedGet" caller
         parameters: [
           {
-            in: 'path',
-            name: 'userId',
+            in: "path",
+            name: "userId",
             required: true,
             schema: {
-              type: 'integer',
+              type: "integer",
             },
           },
         ],
-        responses: { /* ... */ }
+        responses: {
+          /* ... */
+        },
       },
     },
-    '/status': {
+    "/status": {
       get: {
         // no x-type -> will use the "get" caller
-        responses: { /* ... */ }
-      }
-    }
+        responses: {
+          /* ... */
+        },
+      },
+    },
   },
 };
 ```
 
-### 4. Write your *callers*
+### 4. Write your _callers_
 
 These are generic functions that handle requests at the HTTP level.
 
@@ -115,18 +125,18 @@ const callers = {
   },
   authorizedGet: async (url) => {
     const headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    headers.append('Authorization', `Bearer ${localStorage.token}`);
+    headers.append("Content-Type", "application/json");
+    headers.append("Authorization", `Bearer ${localStorage.token}`);
     const resp = await fetch(url, { headers });
     const json = await resp.json();
     return json;
   },
   authorizedPost: async (url, body) => {
     const headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    headers.append('Authorization', `Bearer ${localStorage.token}`);
+    headers.append("Content-Type", "application/json");
+    headers.append("Authorization", `Bearer ${localStorage.token}`);
     const resp = await fetch(url, {
-      method: 'POST',
+      method: "POST",
       headers,
       body: JSON.stringify(body),
     });
@@ -146,8 +156,8 @@ You do this once and `client` can be used in the rest of your code afterward.
 
 ```js
 const client = createClient(specs, callers, {
-  origin: 'https://my.api.com',
-  validationLevel: 'error',
+  origin: "https://my.api.com",
+  validationLevel: "error",
 });
 ```
 
@@ -158,16 +168,17 @@ Thereafter, `oa-client` does all the work of building the full URL and validatin
 In this example, this
 
 ```js
-const data = await client['/users/{userId}'].get({ pathParams: { userId: 123 } });
+const data = await client["/users/{userId}"].get({
+  pathParams: { userId: 123 },
+});
 ```
 
 is equivalent to
 
 ```js
-const url = new URL('https://my.api.com/users/123');
+const url = new URL("https://my.api.com/users/123");
 const data = await callers.authorizedGet(url);
 ```
-
 
 ## Differences with openapi-client
 
@@ -177,7 +188,7 @@ The [openapi-client](https://github.com/mikestead/openapi-client) package is sim
 
 `oa-client` is simpler - it exposes `createClient`, a **factory** that take specs as input and builds the client at runtime. If your API updates, you don't have to write or generate a single line of code.
 
-`openapi-client` handles all the HTTP calls and authentication for you. That can seem powerful, but actually the system is *very* rigid, even for small customizations, and doesn't cover all cases you'll face along the way.
+`openapi-client` handles all the HTTP calls and authentication for you. That can seem powerful, but actually the system is _very_ rigid, even for small customizations, and doesn't cover all cases you'll face along the way.
 
 In `oa-client`, you fully own your generic HTTP callers: you write them yourself, but you probably won't write more than five of them during your whole project lifetime: who needs more than get, post, authorized get, authorized post and file upload?
 
@@ -186,7 +197,7 @@ In `oa-client`, you fully own your generic HTTP callers: you write them yourself
 | Written with <3 by Nino Filiu |
 |  Contributions are welcomed!  |
 +-------------------------------+
-         \   ^__^ 
+         \   ^__^
           \  (oo)\_______
              (__)\       )\/\
                  ||----w |
