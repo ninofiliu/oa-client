@@ -28,7 +28,6 @@ export default (
   } catch (e) {
     if (!(e instanceof Error)) throw e;
     if (!e.message.startsWith("[oa-client:")) throw e;
-    // eslint-disable-next-line no-console
     if (validationLevel === "warn") console.warn(e);
     throw e;
   }
