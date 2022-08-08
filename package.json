@@ -20,10 +20,6 @@
   "repository": "github:ninofiliu/oa-client",
   "main": "dist",
   "types": "types/index.d.ts",
-  "scripts": {
-    "test": "jest",
-    "tdd": "jest --watch"
-  },
   "devDependencies": {
     "@babel/cli": "^7.18.10",
     "@babel/core": "^7.18.10",
