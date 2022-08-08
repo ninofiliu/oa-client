@@ -1,9 +1,10 @@
+import { OperationObject } from "openapi3-ts";
 import validateRequest from ".";
 
 describe("validateRequest", () => {
   it("throws for invalid path params", () => {
     const validationLevel = "error";
-    const routeSpecs = {
+    const routeSpecs: OperationObject = {
       parameters: [
         {
           in: "path",
@@ -12,6 +13,7 @@ describe("validateRequest", () => {
           schema: { type: "integer" },
         },
       ],
+      responses: {},
     };
     const pathParams = { id: "20" };
     const queryParams = {};
@@ -31,7 +33,7 @@ describe("validateRequest", () => {
   });
   it("throws for invalid query params", () => {
     const validationLevel = "error";
-    const routeSpecs = {
+    const routeSpecs: OperationObject = {
       parameters: [
         {
           in: "query",
@@ -40,6 +42,7 @@ describe("validateRequest", () => {
           schema: { type: "integer" },
         },
       ],
+      responses: {},
     };
     const pathParams = {};
     const queryParams = { age: 20.5 };
@@ -59,7 +62,7 @@ describe("validateRequest", () => {
   });
   it("throws for invalid body", () => {
     const validationLevel = "error";
-    const routeSpecs = {
+    const routeSpecs: OperationObject = {
       requestBody: {
         required: true,
         content: {
@@ -68,6 +71,7 @@ describe("validateRequest", () => {
           },
         },
       },
+      responses: {},
     };
     const pathParams = {};
     const queryParams = {};
@@ -87,7 +91,7 @@ describe("validateRequest", () => {
   });
   it("does not throw for valid all", () => {
     const validationLevel = "error";
-    const routeSpecs = {
+    const routeSpecs: OperationObject = {
       parameters: [
         {
           in: "path",
@@ -110,6 +114,7 @@ describe("validateRequest", () => {
           },
         },
       },
+      responses: {},
     };
     const pathParams = { id: 20 };
     const queryParams = { age: 30 };

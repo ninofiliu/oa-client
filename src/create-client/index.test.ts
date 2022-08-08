@@ -1,6 +1,9 @@
 import createClient from ".";
+import { Callers, Specs } from "../types";
 
-const specs = {
+const specs: Specs = {
+  openapi: "3.0.0",
+  info: { title: "", version: "" },
   servers: [{ url: "http://my.server.com" }],
   paths: {
     "/users/{id}": {
@@ -10,15 +13,16 @@ const specs = {
     },
   },
 };
-let callers;
-let client;
+const callers: Callers = { "simple-post": async () => {} };
+const mockedSimplePost = jest.spyOn(callers, "simple-post");
+let client: ReturnType<typeof createClient>;
 
 describe("createClient", () => {
   beforeEach(() => {
-    callers = {
-      "simple-post": jest.fn(),
-    };
-    client = createClient(specs, callers, { validationLevel: "error" });
+    client = createClient(specs, callers, {
+      validationLevel: "error",
+      origin: null,
+    });
   });
   afterEach(() => {
     jest.resetAllMocks();
@@ -28,10 +32,11 @@ describe("createClient", () => {
       pathParams: { id: "123456" },
       queryParams: { foo: "bar" },
       body: { some: "data" },
+      contentType: "application/json",
     });
 
     const url = "http://my.server.com/users/123456?foo=bar";
-    expect(callers["simple-post"].mock.calls[0][0].toString()).toEqual(url);
-    expect(callers["simple-post"].mock.calls[0][1]).toEqual({ some: "data" });
+    expect(mockedSimplePost.mock.calls[0][0].toString()).toEqual(url);
+    expect(mockedSimplePost.mock.calls[0][1]).toEqual({ some: "data" });
   });
 });

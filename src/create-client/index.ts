@@ -3,6 +3,8 @@ import getOrigin from "./get-origin";
 import getCallPath from "./get-call-path";
 import validateRequest from "./validate-request";
 import { Specs, Callers, ValidationLevel, Params } from "../types";
+import { KeywordDefinition } from "ajv";
+import { PathsObject } from "openapi3-ts";
 
 const createClientPathMethod =
   (
@@ -61,7 +63,11 @@ export default (
     validationLevel: "off",
   }
 ) => {
-  const client: any = {};
+  const client = {} as {
+    [path: string]: {
+      [method: string]: ReturnType<typeof createClientPathMethod>;
+    };
+  };
   for (const path in specs.paths) {
     client[path] = {};
     for (const method in specs.paths[path]) {

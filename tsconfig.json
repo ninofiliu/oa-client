@@ -5,7 +5,8 @@
     "moduleResolution": "node",
     "noImplicitAny": true,
     "strict": true,
-    "target": "es6"
+    "target": "ESNext",
+    "lib": ["ESNext", "DOM"]
   },
   "exclude": ["dist", "types", "**/*.spec.js"]
 }

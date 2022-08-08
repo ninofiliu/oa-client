@@ -1,8 +1,9 @@
+import { OperationObject } from "openapi3-ts";
 import validateBody from "./validate-body";
 
 describe("validateBody", () => {
   it("throws for a body that does not match the body schema", () => {
-    const routeSpecs = {
+    const routeSpecs: OperationObject = {
       requestBody: {
         content: {
           "application/json": {
@@ -12,6 +13,7 @@ describe("validateBody", () => {
           },
         },
       },
+      responses: {},
     };
     const contentType = "application/json";
     const body = "hello";
@@ -21,7 +23,7 @@ describe("validateBody", () => {
     );
   });
   it("does not throw for a body that matches the body schema", () => {
-    const routeSpecs = {
+    const routeSpecs: OperationObject = {
       requestBody: {
         content: {
           "application/json": {
@@ -31,6 +33,7 @@ describe("validateBody", () => {
           },
         },
       },
+      responses: {},
     };
     const contentType = "application/json";
     const body = 10;
