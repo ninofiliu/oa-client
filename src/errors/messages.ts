@@ -1,5 +1,3 @@
-import { ErrorObject } from "ajv";
-
 type Messages = Record<number, (data: any) => string>;
 
 const messages: Messages = {
