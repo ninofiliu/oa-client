@@ -15,20 +15,15 @@ const createClientPathMethod =
   ) =>
   (
     {
-      pathParams = {},
-      queryParams = {},
-      body = null,
-      contentType = "application/json",
-    }: {
-      pathParams: Params;
-      queryParams: Params;
-      body: any;
-      contentType: string;
+      pathParams = {} as Params,
+      queryParams = {} as Params,
+      body = null as any,
+      contentType = "application/json" as string,
     } = {
-      pathParams: {},
-      queryParams: {},
-      body: null,
-      contentType: "application/json",
+      pathParams: {} as Params,
+      queryParams: {} as Params,
+      body: null as any,
+      contentType: "application/json" as string,
     }
   ) => {
     const routeSpecs = specs.paths[path][method];

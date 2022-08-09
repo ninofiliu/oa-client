@@ -32,7 +32,6 @@ describe("createClient", () => {
       pathParams: { id: "123456" },
       queryParams: { foo: "bar" },
       body: { some: "data" },
-      contentType: "application/json",
     });
 
     const url = "http://my.server.com/users/123456?foo=bar";
