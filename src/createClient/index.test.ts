@@ -1,5 +1,5 @@
 import createClient from ".";
-import { Callers, Specs } from "../types";
+import type { Callers, Specs } from "../types";
 
 const specs: Specs = {
   openapi: "3.0.0",

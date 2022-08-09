@@ -1,5 +1,5 @@
 import OAClientError from "../errors/OAClientError";
-import { Callers, RouteSpecs } from "../types";
+import type { Callers, RouteSpecs } from "../types";
 
 export default (callers: Callers, routeSpecs: RouteSpecs, method: string) => {
   const type = routeSpecs["x-type"] ?? method;

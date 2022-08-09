@@ -2,9 +2,7 @@ import getCaller from "./getCaller";
 import getOrigin from "./getOrigin";
 import getCallPath from "./getCallPath";
 import validateRequest from "./validateRequest";
-import { Specs, Callers, ValidationLevel, Params } from "../types";
-import { KeywordDefinition } from "ajv";
-import { PathsObject } from "openapi3-ts";
+import type { Specs, Callers, ValidationLevel, Params } from "../types";
 
 const createClientPathMethod =
   (

@@ -1,4 +1,4 @@
-import { Specs } from "../types";
+import type { Specs } from "../types";
 import getOrigin from "./getOrigin";
 
 describe("getOrigin", () => {

@@ -1,10 +1,10 @@
-import { OperationObject } from "openapi3-ts";
 import validateRequest from ".";
+import type { RouteSpecs } from "../../types";
 
 describe("validateRequest", () => {
   it("throws for invalid path params", () => {
     const validationLevel = "error";
-    const routeSpecs: OperationObject = {
+    const routeSpecs: RouteSpecs = {
       parameters: [
         {
           in: "path",
@@ -33,7 +33,7 @@ describe("validateRequest", () => {
   });
   it("throws for invalid query params", () => {
     const validationLevel = "error";
-    const routeSpecs: OperationObject = {
+    const routeSpecs: RouteSpecs = {
       parameters: [
         {
           in: "query",
@@ -62,7 +62,7 @@ describe("validateRequest", () => {
   });
   it("throws for invalid body", () => {
     const validationLevel = "error";
-    const routeSpecs: OperationObject = {
+    const routeSpecs: RouteSpecs = {
       requestBody: {
         required: true,
         content: {
@@ -91,7 +91,7 @@ describe("validateRequest", () => {
   });
   it("does not throw for valid all", () => {
     const validationLevel = "error";
-    const routeSpecs: OperationObject = {
+    const routeSpecs: RouteSpecs = {
       parameters: [
         {
           in: "path",

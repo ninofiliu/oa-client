@@ -1,4 +1,4 @@
-import { Params } from "../types";
+import type { Params } from "../types";
 
 export default (path: string, pathParams: Params) => {
   let ret = path;

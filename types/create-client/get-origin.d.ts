@@ -1,3 +1,3 @@
-import { Specs } from "../types";
+import type { Specs } from "../types";
 declare const _default: (origin: null | string, specs: Specs) => string;
 export default _default;

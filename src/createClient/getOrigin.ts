@@ -1,5 +1,5 @@
 import OAClientError from "../errors/OAClientError";
-import { Specs } from "../types";
+import type { Specs } from "../types";
 
 export default (origin: null | string, specs: Specs) => {
   if (origin) return origin;
