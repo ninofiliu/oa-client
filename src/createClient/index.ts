@@ -1,7 +1,7 @@
-import getCaller from "./get-caller";
-import getOrigin from "./get-origin";
-import getCallPath from "./get-call-path";
-import validateRequest from "./validate-request";
+import getCaller from "./getCaller";
+import getOrigin from "./getOrigin";
+import getCallPath from "./getCallPath";
+import validateRequest from "./validateRequest";
 import { Specs, Callers, ValidationLevel, Params } from "../types";
 import { KeywordDefinition } from "ajv";
 import { PathsObject } from "openapi3-ts";

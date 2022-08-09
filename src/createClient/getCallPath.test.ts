@@ -1,4 +1,4 @@
-import getCallPath from "./get-call-path";
+import getCallPath from "./getCallPath";
 
 describe("getCallPath", () => {
   it("formats the path with the url params", () => {

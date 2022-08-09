@@ -1,5 +1,5 @@
 import { Specs } from "../types";
-import getOrigin from "./get-origin";
+import getOrigin from "./getOrigin";
 
 describe("getOrigin", () => {
   it("returns origin if truthy", () => {

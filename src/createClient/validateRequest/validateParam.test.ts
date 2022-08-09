@@ -1,4 +1,4 @@
-import validateParam from "./validate-param";
+import validateParam from "./validateParam";
 
 describe("validateParam", () => {
   it("throws for absent required parameter", () => {

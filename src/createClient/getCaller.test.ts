@@ -1,6 +1,6 @@
 import { OperationObject } from "openapi3-ts";
 import { Callers } from "../types";
-import getCaller from "./get-caller";
+import getCaller from "./getCaller";
 
 describe("getCaller", () => {
   it("returns callers[routeSpecs['x-type']] if it exists", () => {

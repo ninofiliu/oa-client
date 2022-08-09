@@ -1,5 +1,5 @@
 import { OperationObject } from "openapi3-ts";
-import validateBody from "./validate-body";
+import validateBody from "./validateBody";
 
 describe("validateBody", () => {
   it("throws for a body that does not match the body schema", () => {
