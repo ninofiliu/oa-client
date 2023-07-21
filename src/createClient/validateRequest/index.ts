@@ -1,4 +1,4 @@
-import type { ParameterObject } from "openapi3-ts";
+import type { ParameterObject } from "openapi3-ts/oas30";
 import validateParam from "./validateParam";
 import validateBody from "./validateBody";
 import type { ValidationLevel, RouteSpecs, Params } from "../../types";
