@@ -1,2 +1,2 @@
-import createClient from "./create-client";
+import createClient from "./createClient";
 export { createClient };

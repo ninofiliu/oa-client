@@ -1,5 +1,5 @@
-import validateParam from "./validate-param";
-import validateBody from "./validate-body";
+import validateParam from "./validateParam";
+import validateBody from "./validateBody";
 export default (validationLevel, routeSpecs, pathParams, queryParams, body, contentType) => {
     if (validationLevel === "off")
         return;

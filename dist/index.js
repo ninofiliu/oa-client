@@ -9,7 +9,5 @@ Object.defineProperty(exports, "createClient", {
     return _createClient.default;
   }
 });
-
-var _createClient = _interopRequireDefault(require("./create-client"));
-
+var _createClient = _interopRequireDefault(require("./createClient"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
