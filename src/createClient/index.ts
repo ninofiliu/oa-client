@@ -2,13 +2,13 @@ import getCaller from "./getCaller";
 import getOrigin from "./getOrigin";
 import getCallPath from "./getCallPath";
 import validateRequest from "./validateRequest";
-import type { Specs, Callers, ValidationLevel, Params } from "../types";
+import type { Specs, Callers, ValidationLevel, Params, Method } from "../types";
 
 const createClientPathMethod =
   (
     specs: Specs,
     path: string,
-    method: string,
+    method: Method,
     callers: Callers,
     origin: string | null,
     validationLevel: ValidationLevel
@@ -26,7 +26,7 @@ const createClientPathMethod =
       contentType: "application/json" as string,
     }
   ) => {
-    const routeSpecs = specs.paths[path][method];
+    const routeSpecs = specs.paths[path][method]!
     validateRequest(
       validationLevel,
       routeSpecs,
@@ -57,17 +57,15 @@ export default (
   }
 ) => {
   const client = {} as {
-    [path: string]: {
-      [method: string]: ReturnType<typeof createClientPathMethod>;
-    };
+    [path: string]:Record<Method,ReturnType<typeof createClientPathMethod>>
   };
   for (const path in specs.paths) {
-    client[path] = {};
+    client[path] = {} as Record<Method,ReturnType<typeof createClientPathMethod>>
     for (const method in specs.paths[path]) {
-      client[path][method] = createClientPathMethod(
+      client[path][method as Method] = createClientPathMethod(
         specs,
         path,
-        method,
+        method as Method,
         callers,
         origin,
         validationLevel
