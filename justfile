@@ -15,3 +15,4 @@ release VERSION: test build
   git add .
   git commit -m build
   pnpm version {{VERSION}}
+  pnpm publish
