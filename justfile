@@ -8,3 +8,5 @@ build:
   pnpm exec babel types --out-dir dist
   rm -rf types/*.js
   rm -rf types/**/*.js
+typecheck:
+  pnpm exec tsc --noEmit
